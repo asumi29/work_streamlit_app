@@ -19,7 +19,7 @@ sigma = st.sidebar.slider('正規分布の分散', min_value=0.1, max_value=20.0
 x_1 = np.linspace(mu - 4*sigma, mu + 4*sigma, 200)
 z = stats.norm.pdf(x_1, loc=mu, scale=sigma)
 
-fig_norm, ax1 = plt.subplots(figsize=(8, 5))
+fig_norm, ax1 = plt.subplots(figsize=(10, 6))
 ax1.plot(x_1, z, 'b-', linewidth=2, label='正規分布')
 ax1.fill_between(x_1, z, alpha=0.3)
 ax1.set_xlabel('x')
@@ -89,6 +89,7 @@ peak_day = sol.t[np.argmax(sol.y[1])]
 st.metric("最大感染者数", f"{peak_i:.0f}人", f"{peak_day:.0f}日目")
 
 st.pyplot(fig_sir, use_container_width=True)
+
 
 
 

@@ -16,7 +16,7 @@ st.subheader('確率分布の実験')
 mu = st.sidebar.slider('正規分布の期待値', min_value=-5.0, max_value=5.0, step=0.01, value=0.0)
 sigma = st.sidebar.slider('正規分布の分散', min_value=0.1, max_value=20.0, step=0.1, value=1.0)
 
-x_1 = np.linspace(-10, 10, 100)
+x_1 = np.linspace(mu - 4*sigma, mu + 4*sigma, 200)
 z = stats.norm.pdf(x_1, loc=mu, scale=sigma)
 
 fig_norm, ax1 = plt.subplots(figsize=(8, 5))
@@ -89,5 +89,6 @@ peak_day = sol.t[np.argmax(sol.y[1])]
 st.metric("最大感染者数", f"{peak_i:.0f}人", f"{peak_day:.0f}日目")
 
 st.pyplot(fig_sir, use_container_width=True)
+
 
 
